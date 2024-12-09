@@ -1,0 +1,24 @@
+=> [[32m#<Inquiry:0x00007b54f990b478[0m
+  id: [1;34m1[0m,
+  messaage: [31m[1;31m"[0m[31mIs this apartment still available?[1;31m"[0m[31m[0m,
+  apartment_id: [1;34m1[0m,
+  asker_id: [1;34m2[0m,
+  answerer_id: [1;36mnil[0m,
+  created_at: [1;34;4mMon[0m, [1;34m09[0m [1;34;4mDec[0m [1;34m2024[0m [1;34m21[0m:[1;34m01[0m:[1;35m21.303308000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mMon[0m, [1;34m09[0m [1;34;4mDec[0m [1;34m2024[0m [1;34m21[0m:[1;34m01[0m:[1;35m21.303308000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Inquiry:0x00007b54f9336a48[0m
+  id: [1;34m2[0m,
+  messaage: [31m[1;31m"[0m[31mCan I schedule a viewing for next week?[1;31m"[0m[31m[0m,
+  apartment_id: [1;34m2[0m,
+  asker_id: [1;34m3[0m,
+  answerer_id: [1;36mnil[0m,
+  created_at: [1;34;4mMon[0m, [1;34m09[0m [1;34;4mDec[0m [1;34m2024[0m [1;34m21[0m:[1;34m01[0m:[1;35m21.306473000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mMon[0m, [1;34m09[0m [1;34;4mDec[0m [1;34m2024[0m [1;34m21[0m:[1;34m01[0m:[1;35m21.306473000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Inquiry:0x00007b54f9336908[0m
+  id: [1;34m3[0m,
+  messaage: [31m[1;31m"[0m[31mIs the rent negotiable?[1;31m"[0m[31m[0m,
+  apartment_id: [1;34m3[0m,
+  asker_id: [1;34m1[0m,
+  answerer_id: [1;36mnil[0m,
+  created_at: [1;34;4mMon[0m, [1;34m09[0m [1;34;4mDec[0m [1;34m2024[0m [1;34m21[0m:[1;34m01[0m:[1;35m21.309169000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mMon[0m, [1;34m09[0m [1;34;4mDec[0m [1;34m2024[0m [1;34m21[0m:[1;34m01[0m:[1;35m21.309169000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m]

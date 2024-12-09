@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   # Routes for the Apartment image resource:
 
+  get("/", { :controller => "apartments", :action => "index" })
+
   # CREATE
   post("/insert_apartment_image", { :controller => "apartment_images", :action => "create" })
           

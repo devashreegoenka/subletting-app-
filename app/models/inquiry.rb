@@ -11,4 +11,9 @@
 #  asker_id     :integer
 #
 class Inquiry < ApplicationRecord
+
+  belongs_to( :asker, required: true, class_name: "User", foreign_key: "asker_id")
+  belongs_to( :answerer, required: true, class_name: "User", foreign_key: "answerer_id")
+  belongs_to( :apartment, required: true, class_name: "Apartment", foreign_key: "apartment_id")
+
 end
