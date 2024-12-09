@@ -1,5 +1,24 @@
 Rails.application.routes.draw do
 
+  # Routes for the Inquiry resource:
+
+  # CREATE
+  post("/insert_inquiry", { :controller => "inquiries", :action => "create" })
+          
+  # READ
+  get("/inquiries", { :controller => "inquiries", :action => "index" })
+  
+  get("/inquiries/:path_id", { :controller => "inquiries", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_inquiry/:path_id", { :controller => "inquiries", :action => "update" })
+  
+  # DELETE
+  get("/delete_inquiry/:path_id", { :controller => "inquiries", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Apartment resource:
 
   # CREATE
