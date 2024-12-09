@@ -1,5 +1,24 @@
 Rails.application.routes.draw do
 
+  # Routes for the Apartment resource:
+
+  # CREATE
+  post("/insert_apartment", { :controller => "apartments", :action => "create" })
+          
+  # READ
+  get("/apartments", { :controller => "apartments", :action => "index" })
+  
+  get("/apartments/:path_id", { :controller => "apartments", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_apartment/:path_id", { :controller => "apartments", :action => "update" })
+  
+  # DELETE
+  get("/delete_apartment/:path_id", { :controller => "apartments", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the User resource:
 
   # CREATE

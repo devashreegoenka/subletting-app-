@@ -1,0 +1,206 @@
+<div>
+  <div>
+    <h1>
+      Apartment #<%= @the_apartment.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/apartments">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_apartment/<%= @the_apartment.id %>">
+          Delete apartment
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @the_apartment.title %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_apartment.description %>
+      </dd>
+
+      <dt>
+        Address
+      </dt>
+      <dd>
+        <%= @the_apartment.address %>
+      </dd>
+
+      <dt>
+        City
+      </dt>
+      <dd>
+        <%= @the_apartment.city %>
+      </dd>
+
+      <dt>
+        State
+      </dt>
+      <dd>
+        <%= @the_apartment.state %>
+      </dd>
+
+      <dt>
+        Zip code
+      </dt>
+      <dd>
+        <%= @the_apartment.zip_code %>
+      </dd>
+
+      <dt>
+        Rent
+      </dt>
+      <dd>
+        <%= @the_apartment.rent %>
+      </dd>
+
+      <dt>
+        Availability start date
+      </dt>
+      <dd>
+        <%= @the_apartment.availability_start_date %>
+      </dd>
+
+      <dt>
+        Availability end date
+      </dt>
+      <dd>
+        <%= @the_apartment.availability_end_date %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_apartment.user_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_apartment.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_apartment.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit apartment
+    </h2>
+
+    <form action="/modify_apartment/<%= @the_apartment.id %>"  method="post" >
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" value="<%= @the_apartment.title %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description" value="<%= @the_apartment.description %>">
+      </div>
+
+      <div>
+        <label for="address_box">
+          Address
+        </label>
+
+        <input type="text" id="address_box" name="query_address" value="<%= @the_apartment.address %>">
+      </div>
+
+      <div>
+        <label for="city_box">
+          City
+        </label>
+
+        <input type="text" id="city_box" name="query_city" value="<%= @the_apartment.city %>">
+      </div>
+
+      <div>
+        <label for="state_box">
+          State
+        </label>
+
+        <input type="text" id="state_box" name="query_state" value="<%= @the_apartment.state %>">
+      </div>
+
+      <div>
+        <label for="zip_code_box">
+          Zip code
+        </label>
+
+        <input type="text" id="zip_code_box" name="query_zip_code" value="<%= @the_apartment.zip_code %>">
+      </div>
+
+      <div>
+        <label for="rent_box">
+          Rent
+        </label>
+
+        <input type="text" id="rent_box" name="query_rent" value="<%= @the_apartment.rent %>">
+      </div>
+
+      <div>
+        <label for="availability_start_date_box">
+          Availability start date
+        </label>
+
+        <input type="text" id="availability_start_date_box" name="query_availability_start_date" value="<%= @the_apartment.availability_start_date %>">
+      </div>
+
+      <div>
+        <label for="availability_end_date_box">
+          Availability end date
+        </label>
+
+        <input type="text" id="availability_end_date_box" name="query_availability_end_date" value="<%= @the_apartment.availability_end_date %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_apartment.user_id %>">
+      </div>
+
+      <button>
+        Update apartment
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
