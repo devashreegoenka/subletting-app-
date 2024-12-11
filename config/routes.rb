@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
 
   # Routes for the Apartment image resource:
 
-  get("/", { :controller => "apartments", :action => "index" })
+  root "apartments#index"
 
   # CREATE
   post("/insert_apartment_image", { :controller => "apartment_images", :action => "create" })

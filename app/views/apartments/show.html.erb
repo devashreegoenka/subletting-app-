@@ -1,103 +1,126 @@
-<div>
-  <div>
-    <h1>
-      Apartment #<%= @the_apartment.id %> details
-    </h1>
 
-    <div>
-      <div>
-        <a href="/apartments">
-          Go back
-        </a>
-      </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SubletSpace</title>
+  <!-- Link to the CSS file -->
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="/styles.css">
 
+</head>
+<body>
+ <div>
+     <ul>
+        <li><a href="/apartments">
+          Go back to homepage
+        </a> </li>
+
+        <li> <a href="/apartment_images"> View other apartment images</a> </li>
+     </ul>
+
+
+    <% if current_user.id == @the_apartment.user_id %>
       <div>
         <a href="/delete_apartment/<%= @the_apartment.id %>">
           Delete apartment
         </a>
       </div>
+      <%end%>
     </div>
 
-    <dl>
-      <dt>
-        Title
-      </dt>
-      <dd>
-        <%= @the_apartment.title %>
-      </dd>
 
+<div>
+  <div>
+    <h1>
+      Apartment <%= @the_apartment.title%> Details
+    </h1>
+
+   
+    <dl>
+
+    <% @the_apartment.apartment_images.each do |an_image| %>
+  <dt>
+    <%= image_tag an_image.image_url , { :height => "300" }%>
+  </dt>
+<% end %>
+      
       <dt>
-        Description
+        <h4> <i class="fa-solid fa-book"></i> Description </h4>
       </dt>
       <dd>
         <%= @the_apartment.description %>
       </dd>
 
       <dt>
-        Address
+       <h4> <i class="fa-regular fa-address-book"></i> Address </h4>
       </dt>
       <dd>
         <%= @the_apartment.address %>
       </dd>
 
       <dt>
-        City
+        <h4><i class="fa-solid fa-city"></i> City</h4>
       </dt>
       <dd>
         <%= @the_apartment.city %>
       </dd>
 
       <dt>
-        State
+       <h4> <i class="fa-solid fa-flag-usa"></i> State</h4>
       </dt>
       <dd>
         <%= @the_apartment.state %>
       </dd>
 
       <dt>
-        Zip code
+        <h4> <i class="fa-solid fa-hashtag"></i> Zip code </h4>
       </dt>
       <dd>
         <%= @the_apartment.zip_code %>
       </dd>
 
       <dt>
-        Rent
+        <h4><i class="fa-solid fa-dollar-sign"></i> Rent </h4>
       </dt>
       <dd>
         <%= @the_apartment.rent %>
       </dd>
 
       <dt>
-        Availability start date
+        <h4> <i class="fa-regular fa-calendar"></i> Availability start date </h4>
       </dt>
       <dd>
-        <%= @the_apartment.availability_start_date %>
+        <%= Date.parse(@the_apartment.availability_start_date.to_s).strftime("%d %b, %Y") %>
       </dd>
 
       <dt>
-        Availability end date
+        <h4><i class="fa-regular fa-calendar"></i> Availability end date </h4>
       </dt>
       <dd>
-        <%= @the_apartment.availability_end_date %>
+        <%= Date.parse(@the_apartment.availability_end_date.to_s).strftime("%d %b, %Y") %>
       </dd>
 
+    <% if current_user.id != @the_apartment.user_id%>
       <dt>
-        User
+        <h4> <i class="fa-solid fa-person"></i> Owner <h4>
       </dt>
       <dd>
-        <%= @the_apartment.user_id %>
+        <%= @the_apartment.user.name %>
       </dd>
+      <%end%>
 
       <dt>
-        Created at
+        <h4>Created at </h4>
       </dt>
       <dd>
         <%= time_ago_in_words(@the_apartment.created_at) %> ago
       </dd>
 
       <dt>
-        Updated at
+        <h4>Updated at </h4>
       </dt>
       <dd>
         <%= time_ago_in_words(@the_apartment.updated_at) %> ago
@@ -108,6 +131,8 @@
 
 <hr>
 
+
+<% if current_user.id == @the_apartment.user_id %>
 
 <div>
   <div>
@@ -188,13 +213,9 @@
         <input type="text" id="availability_end_date_box" name="query_availability_end_date" value="<%= @the_apartment.availability_end_date %>">
       </div>
 
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_apartment.user_id %>">
-      </div>
+     
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_apartment.user_id %>">
+      
 
       <button>
         Update apartment
@@ -203,4 +224,58 @@
   </div>
 </div>
 
+<%else%>
+
+<h3> Interested? Send a message to owner! </h3>
+
+<%end%>
+
+<div>
+  <div>
+    <h2>
+      Add a new inquiry
+    </h2>
+
+
+
+    <form action="/insert_inquiry" method="post">
+      <div>
+        <label for="message" %>
+        Message 
+        </label>
+        <input type="text" id="message" name="query_message">
+      </div>
+
+    
+      <div>
+        <label for="apartment_id_box" %>
+        Apartment
+        </label>
+        <input type="text" id="apartment_id_box" name="query_apartment_id">
+      </div>
+     
+     <div>
+        <label for="asker_id" %>
+        Asker
+        </label>
+        <input type="hidden" id="asker_id" value="<%= current_user.id %>">
+      </div>
+
+    <div>
+        <label for="answerer_id" %>
+        Answerer
+        </label>
+        <input type="text" id="answerer_id" name="query_answerer_id">
+      </div>
+
+     
+  <button> Create query </button>
+  </form>
+  </div>
+</div>
+
 <hr>
+
+
+</body>
+</html>

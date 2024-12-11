@@ -20,10 +20,10 @@
 
     <dl>
       <dt>
-        Messaage
+        message
       </dt>
       <dd>
-        <%= @the_inquiry.messaage %>
+        <%= @the_inquiry.message %>
       </dd>
 
       <dt>
@@ -75,11 +75,11 @@
 
     <form action="/modify_inquiry/<%= @the_inquiry.id %>"  method="post" >
       <div>
-        <label for="messaage_box">
-          Messaage
+        <label for="message_box">
+          message
         </label>
 
-        <input type="text" id="messaage_box" name="query_messaage" value="<%= @the_inquiry.messaage %>">
+        <input type="text" id="message_box" name="query_message" value="<%= @the_inquiry.message %>">
       </div>
 
       <div>

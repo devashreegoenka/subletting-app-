@@ -1,3 +1,32 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SubletSpace</title>
+  <!-- Link to the CSS file -->
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+
+<% if current_user.present? %>
+  <li><a href="/users/edit">Edit profile</a> </li>
+
+  <li><a href="/users/sign_out">Sign out</a> </li>
+<% else %>
+  <li><a href="/users/sign_up">Sign up</a> </li>
+  
+  <li><a href="/users/sign_in">Sign in</a> </li>
+<% end %>
+
+<li> <a href="/"> Back to homepage</a> </li>
+<li> <a href="/inquiries"> View my inquiries </a> </li>
+
+</ul>
+
+<hr>
+
+
 <div>
   <div>
     <h1>
@@ -8,8 +37,59 @@
 
 <hr>
 
+
+<hr>
 <div>
   <div>
+    <table border="1">
+      <tr>
+        <th>
+          Listing name 
+        </th>
+
+        <th>
+          Address
+        </th>
+
+        <th>
+          Image 
+        </th>
+
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_apartment_images.each do |an_apartment_image| %>
+      <tr>
+        <td>
+          <%= an_apartment_image.apartment.title %>
+        </td>
+
+        <td>
+          <%= an_apartment_image.apartment.address %>
+        </td>
+
+        <td>
+          <img src="<%= an_apartment_image.image_url %>" style="width: 450px; height: auto">
+        </td>
+
+        <td>
+          <a href="/apartments/<%= an_apartment_image.apartment.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <% if current_user.present? %>
     <h2>
       Add a new apartment image
     </h2>
@@ -35,68 +115,13 @@
         Create apartment image
       </button>
     </form>
+
+    <%else%>
+
+    <i> <a href="/users/sign_in">Sign-in</a> or <a href="/users/sign_up">Sign-up</a> to add a new apartment image for an existing listing </i>
+    <%end%>  
   </div>
 </div>
 
-<hr>
-<div>
-  <div>
-    <table border="1">
-      <tr>
-        <th>
-          ID
-        </th>
-
-        <th>
-          Apartment
-        </th>
-
-        <th>
-          Image url
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_apartment_images.each do |an_apartment_image| %>
-      <tr>
-        <td>
-          <%= an_apartment_image.id %>
-        </td>
-
-        <td>
-          <%= an_apartment_image.apartment_id %>
-        </td>
-
-        <td>
-          <%= an_apartment_image.image_url %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(an_apartment_image.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(an_apartment_image.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/apartment_images/<%= an_apartment_image.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-</div>
-
-<hr>
+</body>
+</html>
