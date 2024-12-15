@@ -7,7 +7,35 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "/styles.css", "media": "all" %>
     <%= javascript_importmap_tags %>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+    <div class="header-bar">
+  <h2> SubletSpace</h2>
+  <nav>
+    <% if current_user.present? %>
+      <a href="/users/edit">Edit profile</a>
+      <a href="/users/sign_out">Sign out</a>
+    <% else %>
+      <a href="/users/sign_up">Sign up</a>
+      <a href="/users/sign_in">Sign in</a>
+    <% end %>
+     <a href="/"> Homepage</a>
+    <a href="/apartment_images"> All apartment images</a>
+    <a href="/inquiries"> My inquiries </a>
+  </nav>
+</div>
+
+<% if flash[:success] %>
+  <div class="success-message">
+    <span><%= flash[:success] %></span>
+    <button class="close-button" onclick="this.parentElement.style.display='none';">&times;</button>
+  </div>
+<% end %>
+
   </head>
 
   <body>

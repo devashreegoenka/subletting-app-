@@ -10,6 +10,7 @@
 #  description             :string
 #  rent                    :string
 #  state                   :string
+#  status                  :string
 #  title                   :string
 #  zip_code                :string
 #  created_at              :datetime         not null

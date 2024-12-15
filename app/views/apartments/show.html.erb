@@ -1,35 +1,4 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SubletSpace</title>
-  <!-- Link to the CSS file -->
- 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<link rel="stylesheet" href="/styles.css">
-
-</head>
-<body>
- <div>
-     <ul>
-        <li><a href="/apartments">
-          Go back to homepage
-        </a> </li>
-
-        <li> <a href="/apartment_images"> View other apartment images</a> </li>
-     </ul>
-
-
-    <% if current_user.id == @the_apartment.user_id %>
-      <div>
-        <a href="/delete_apartment/<%= @the_apartment.id %>">
-          Delete apartment
-        </a>
-      </div>
-      <%end%>
-    </div>
 
 
 <div>
@@ -136,9 +105,9 @@
 
 <div>
   <div>
-    <h2>
+    <h3>
       Edit apartment
-    </h2>
+    </h3>
 
     <form action="/modify_apartment/<%= @the_apartment.id %>"  method="post" >
       <div>
@@ -228,8 +197,6 @@
 
 <h3> Interested? Send a message to owner! </h3>
 
-<%end%>
-
 <div>
   <div>
     <h2>
@@ -271,11 +238,20 @@
      
   <button> Create query </button>
   </form>
+
+<%end%>
+
   </div>
 </div>
 
 <hr>
 
-
-</body>
-</html>
+<h3 style="text-align: left; display: inline;"> <i>No longer want to show this as a listing? </i></h3>
+<% if current_user.id == @the_apartment.user_id %>
+    
+        <a href="/delete_apartment/<%= @the_apartment.id %>">
+          Click here to delete the listing 
+        </a>
+  
+      <%end%>
+    </div>

@@ -13,13 +13,12 @@
 <table border="1">
   <thead>
     <tr>
-      <th>ID</th>
       <th>Message</th>
       <th>Apartment</th>
-      <th>Asker</th>
-      <th>Answerer</th>
-      <th>Created at</th>
-      <th>Updated at</th>
+      <th>Inquirer</th>
+      <th>Phone number</th>
+      <th>Email</th>
+      <th>Sent at</th>
       <th></th>
     </tr>
   </thead>
@@ -27,14 +26,12 @@
   <tbody>
     <% @list_of_inquiries.each do |inquiry| %>
       <tr>
-        <td><%= inquiry.id %></td>
         <td><%= inquiry.message %></td>
         <td><%= inquiry.apartment.title %></td> 
         <td><%= inquiry.asker.name %></td> 
-        <td><%= inquiry.answerer.try(:name) %></td> 
+        <td><%= inquiry.asker.phone_number %></td> 
+        <td><%= inquiry.asker.email %></td> 
         <td><%= time_ago_in_words(inquiry.created_at) %> ago</td>
-        <td><%= time_ago_in_words(inquiry.updated_at) %> ago</td>
-        <td><a href="/inquiries/<%= inquiry.id %>">Show details</a></td>
       </tr>
     <% end %>
   </tbody>
