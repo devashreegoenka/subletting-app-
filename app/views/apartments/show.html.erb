@@ -210,31 +210,16 @@
         <label for="message" %>
         Message 
         </label>
-        <input type="text" id="message" name="query_message">
+        <input type="text" id="message" name="query_message" style="width: 300px; height: 100px;" >
       </div>
 
     
-      <div>
-        <label for="apartment_id_box" %>
-        Apartment
-        </label>
-        <input type="text" id="apartment_id_box" name="query_apartment_id">
-      </div>
-     
-     <div>
-        <label for="asker_id" %>
-        Asker
-        </label>
-        <input type="hidden" id="asker_id" value="<%= current_user.id %>">
-      </div>
-
-    <div>
-        <label for="answerer_id" %>
-        Answerer
-        </label>
-        <input type="text" id="answerer_id" name="query_answerer_id">
-      </div>
-
+ 
+        <input type="hidden" id="apartment_id_box" value="<%= @the_apartment.title%>" name="query_apartment_id">
+    
+        <input type="hidden" id="asker_id" value="<%= current_user.id %>" name="query_asker_id">
+    
+        <input type="hidden" id="answerer_id" value="<%= @the_apartment.user.name %>" name="query_answerer_id">
      
   <button> Create query </button>
   </form>
@@ -246,9 +231,9 @@
 
 <hr>
 
-<h3 style="text-align: left; display: inline;"> <i>No longer want to show this as a listing? </i></h3>
+
 <% if current_user.id == @the_apartment.user_id %>
-    
+    <h3 style="text-align: left; display: inline;"> <i>No longer want to show this as a listing? </i></h3>
         <a href="/delete_apartment/<%= @the_apartment.id %>">
           Click here to delete the listing 
         </a>

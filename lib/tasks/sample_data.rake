@@ -14,9 +14,9 @@ namespace :db do
 
     
     User.create([
-      { name: "Alice Johnson", email: "alice@example.com", password: "password123" },
-      { name: "Bob Smith", email: "bob@example.com", password: "password123" },
-      { name: "Charlie Lee", email: "charlie@example.com", password: "password123" },
+      { name: "Alice Johnson",phone_number: "9873489002", email: "alice@example.com", password: "password123" },
+      { name: "Bob Smith", phone_number: "8273489888", email: "bob@example.com", password: "password123" },
+      { name: "Charlie Lee", phone_number: "9099989002", email: "charlie@example.com", password: "password123" },
     ])
 
 

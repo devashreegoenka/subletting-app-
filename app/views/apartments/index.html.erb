@@ -81,8 +81,8 @@
                 <% if an_apartment.availability_end_date.present? && Date.parse(an_apartment.availability_end_date.to_s) < Date.today %>
                   <span class="status unavailable">Unavailable</span>
                 <% else %>
-                  <span class="status <%= an_apartment.status.downcase %>">
-                    <%= an_apartment.status.capitalize %>
+                  <span class="status <%= an_apartment.status %>">
+                    <%= an_apartment.status %>
                   </span>
                 <% end %>
               </td>
