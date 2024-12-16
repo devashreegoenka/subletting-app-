@@ -67,9 +67,9 @@ namespace :db do
     ])
 
     Inquiry.create([
-      { message: "Is this apartment still available?", apartment_id: 1, asker_id: 2 },
-      { message: "Can I schedule a viewing for next week?", apartment_id: 2, asker_id: 3 },
-      { message: "Is the rent negotiable?", apartment_id: 3, asker_id: 1 },
+      { message: "Is this apartment still available?", apartment_id: 1, answerer_id: 1, asker_id: 2 },
+      { message: "Can I schedule a viewing for next week?", apartment_id: 2, answerer_id: 2 , asker_id: 3 },
+      { message: "Is the rent negotiable?", apartment_id: 3, answerer_id: 3 ,asker_id: 1 },
     ])
 
     puts "Sample data loaded!"

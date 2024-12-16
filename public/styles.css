@@ -62,7 +62,7 @@ a:hover {
 }
 
 /* Style the form inputs */
-input[type="text"] {
+input {
   width: 100%;
   padding: 8px;
   margin: 5px 0;
