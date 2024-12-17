@@ -55,6 +55,7 @@ class ApartmentsController < ApplicationController
     the_apartment.availability_start_date = params.fetch("query_availability_start_date")
     the_apartment.availability_end_date = params.fetch("query_availability_end_date")
     the_apartment.user_id = params.fetch("query_user_id")
+    the_apartment.manual_availability = params.fetch("query_manual_availability")
 
     if the_apartment.valid?
       the_apartment.save

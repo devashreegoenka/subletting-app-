@@ -57,38 +57,4 @@
 
 <hr>
 
-<div>
-  <div>
-    <% if current_user.present? %>
-    <h2>
-      Add a new apartment image
-    </h2>
 
-    <form action="/insert_apartment_image" method="post">
-      <div>
-        <label for="apartment_id_box">
-          Apartment
-        </label>
-
-        <input type="text" id="apartment_id_box" name="query_apartment_id">
-      </div>
-
-      <div>
-        <label for="image_url_box">
-          Image url
-        </label>
-
-        <input type="text" id="image_url_box" name="query_image_url">
-      </div>
-
-      <button>
-        Create apartment image
-      </button>
-    </form>
-
-    <%else%>
-
-    <i> <a href="/users/sign_in">Sign-in</a> or <a href="/users/sign_up">Sign-up</a> to add a new apartment image for an existing listing </i>
-    <%end%>  
-  </div>
-</div>

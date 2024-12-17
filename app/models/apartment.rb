@@ -8,6 +8,7 @@
 #  availability_start_date :string
 #  city                    :string
 #  description             :string
+#  manual_availability     :boolean
 #  rent                    :string
 #  state                   :string
 #  status                  :string
