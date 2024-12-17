@@ -25,11 +25,13 @@ class ApartmentImagesController < ApplicationController
     the_apartment_image.apartment_id = params.fetch("query_apartment_id")
     the_apartment_image.image_url = params.fetch("query_image_url")
 
+    the_apartment = Apartment.find(params.fetch("query_apartment_id"))
+
     if the_apartment_image.valid?
       the_apartment_image.save
-      redirect_to("/apartment_images", { :notice => "Apartment image created successfully." })
+      redirect_to("/apartments/#{the_apartment.id}", { :notice => "Apartment image created successfully." })
     else
-      redirect_to("/apartment_images", { :alert => the_apartment_image.errors.full_messages.to_sentence })
+      redirect_to("/apartments/#{the_apartment.id}", { :alert => the_apartment_image.errors.full_messages.to_sentence })
     end
   end
 

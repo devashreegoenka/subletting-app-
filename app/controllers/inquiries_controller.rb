@@ -24,15 +24,13 @@ class InquiriesController < ApplicationController
     the_inquiry.asker_id = params.fetch("query_asker_id")
     the_inquiry.answerer_id = params.fetch("query_answerer_id")
 
-    puts "Inquiry Params: #{params.inspect}"
-    puts "Inquiry Valid: #{the_inquiry.valid?}"
-    puts "Inquiry Errors: #{the_inquiry.errors.full_messages}"
+    the_apartment = Apartment.find(params.fetch("query_apartment_id"))
 
     if the_inquiry.valid?
       the_inquiry.save
-      redirect_to("/apartments", { :notice => "Inquiry created successfully." })
+      redirect_to("/apartments/#{the_apartment.id}", { :notice => "Inquiry created successfully." })
     else
-      redirect_to("/apartments", { :alert => the_inquiry.errors.full_messages.to_sentence })
+      redirect_to("/apartments/#{the_apartment.id}", { :alert => the_inquiry.errors.full_messages.to_sentence })
     end
   end
 
