@@ -29,29 +29,27 @@
   </nav>
 </div>
 
-<% if flash[:success] %>
-  <div class="success-message">
-    <span><%= flash[:success] %></span>
-    <button class="close-button" onclick="this.parentElement.style.display='none';">&times;</button>
-  </div>
-<% end %>
-
   </head>
 
   <body>
-    <%= yield %>
+   
 
       <% if notice.present? %>
-    <div>
+    <div class="flash-message notice">
       <%= notice %>
-    </div>
+      <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div >
   <% end %>
 
   <% if alert.present? %>
-    <div>
+    <div class="flash-message alert">
       <%= alert %>
+      <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
     </div>
   <% end %>
-  
+
+
+   <%= yield %>
+
   </body>
 </html>

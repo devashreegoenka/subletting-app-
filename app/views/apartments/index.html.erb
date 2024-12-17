@@ -120,6 +120,7 @@
       </h3>
 
       <form action="/insert_apartment" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <div>
           <label for="title_box">
             Title

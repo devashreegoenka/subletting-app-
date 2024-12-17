@@ -1,8 +1,9 @@
 class ApartmentsController < ApplicationController
 
-  skip_before_action(:authenticate_user!, { :only => [:index] })
+
   
   def index
+  
     matching_apartments = Apartment.all
 
     @list_of_apartments = matching_apartments.order({ :created_at => :desc })
@@ -35,7 +36,7 @@ class ApartmentsController < ApplicationController
 
     if the_apartment.valid?
       the_apartment.save
-      redirect_to("/apartments", { :notice => "Listing created successfully." })
+      redirect_to("/apartments", { :notice => "Listing created successfully. Please add photos through the 'Show Details' page." })
     else
       redirect_to("/apartments", { :alert => the_apartment.errors.full_messages.to_sentence })
     end
